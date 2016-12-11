@@ -4,7 +4,7 @@
 #
 Name     : glu
 Version  : 9.0.0
-Release  : 6
+Release  : 7
 URL      : ftp://ftp.freedesktop.org/pub/mesa/glu/glu-9.0.0.tar.gz
 Source0  : ftp://ftp.freedesktop.org/pub/mesa/glu/glu-9.0.0.tar.gz
 Summary  : Mesa OpenGL Utility library
@@ -12,6 +12,7 @@ Group    : Development/Tools
 License  : SGI-B-1.0
 Requires: glu-lib
 BuildRequires : mesa-dev
+BuildRequires : mesa-dev32
 BuildRequires : pkgconfig(gl)
 
 %description
@@ -39,10 +40,12 @@ lib components for the glu package.
 %setup -q -n glu-9.0.0
 
 %build
+export LANG=C
 %configure --disable-static
 make V=1  %{?_smp_mflags}
 
 %check
+export LANG=C
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost
@@ -59,9 +62,10 @@ rm -rf %{buildroot}
 %defattr(-,root,root,-)
 /usr/include/GL/glu.h
 /usr/include/GL/glu_mangle.h
-/usr/lib64/*.so
-/usr/lib64/pkgconfig/*.pc
+/usr/lib64/libGLU.so
+/usr/lib64/pkgconfig/glu.pc
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/*.so.*
+/usr/lib64/libGLU.so.1
+/usr/lib64/libGLU.so.1.3.1
