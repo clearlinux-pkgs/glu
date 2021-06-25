@@ -2,3 +2,5 @@
 # but are undesirable. One entry per line, no whitespace.
 osmesa
 32osmesa
+opengl
+32opengl
