@@ -4,13 +4,12 @@
 #
 Name     : glu
 Version  : 9.0.2
-Release  : 22
+Release  : 23
 URL      : https://mesa.freedesktop.org/archive/glu/glu-9.0.2.tar.gz
 Source0  : https://mesa.freedesktop.org/archive/glu/glu-9.0.2.tar.gz
 Summary  : Mesa OpenGL Utility library
 Group    : Development/Tools
 License  : SGI-B-1.0
-Requires: glu-filemap = %{version}-%{release}
 Requires: glu-lib = %{version}-%{release}
 BuildRequires : buildreq-meson
 BuildRequires : gcc-dev32
@@ -46,18 +45,9 @@ Requires: glu-dev = %{version}-%{release}
 dev32 components for the glu package.
 
 
-%package filemap
-Summary: filemap components for the glu package.
-Group: Default
-
-%description filemap
-filemap components for the glu package.
-
-
 %package lib
 Summary: lib components for the glu package.
 Group: Libraries
-Requires: glu-filemap = %{version}-%{release}
 
 %description lib
 lib components for the glu package.
@@ -86,7 +76,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1634694571
+export SOURCE_DATE_EPOCH=1656033315
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -129,7 +119,7 @@ cd ../buildavx2;
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1634694571
+export SOURCE_DATE_EPOCH=1656033315
 rm -rf %{buildroot}
 pushd ../build32/
 %make_install32
@@ -150,7 +140,7 @@ pushd ../buildavx2/
 %make_install_v3
 popd
 %make_install
-/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
@@ -167,15 +157,13 @@ popd
 /usr/lib32/pkgconfig/32glu.pc
 /usr/lib32/pkgconfig/glu.pc
 
-%files filemap
-%defattr(-,root,root,-)
-/usr/share/clear/filemap/filemap-glu
-
 %files lib
 %defattr(-,root,root,-)
+/usr/lib64/glibc-hwcaps/x86-64-v3/libGLU.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libGLU.so.1
+/usr/lib64/glibc-hwcaps/x86-64-v3/libGLU.so.1.3.1
 /usr/lib64/libGLU.so.1
 /usr/lib64/libGLU.so.1.3.1
-/usr/share/clear/optimized-elf/lib*
 
 %files lib32
 %defattr(-,root,root,-)
