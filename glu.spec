@@ -4,7 +4,7 @@
 #
 Name     : glu
 Version  : 9.0.2
-Release  : 23
+Release  : 24
 URL      : https://mesa.freedesktop.org/archive/glu/glu-9.0.2.tar.gz
 Source0  : https://mesa.freedesktop.org/archive/glu/glu-9.0.2.tar.gz
 Summary  : Mesa OpenGL Utility library
@@ -76,7 +76,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656033315
+export SOURCE_DATE_EPOCH=1656115305
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -119,7 +119,7 @@ cd ../buildavx2;
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1656033315
+export SOURCE_DATE_EPOCH=1656115305
 rm -rf %{buildroot}
 pushd ../build32/
 %make_install32
