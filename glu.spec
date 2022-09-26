@@ -4,7 +4,7 @@
 #
 Name     : glu
 Version  : 9.0.2
-Release  : 27
+Release  : 28
 URL      : https://mesa.freedesktop.org/archive/glu/glu-9.0.2.tar.gz
 Source0  : https://mesa.freedesktop.org/archive/glu/glu-9.0.2.tar.gz
 Summary  : Mesa OpenGL Utility library
