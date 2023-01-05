@@ -6,7 +6,7 @@
 #
 Name     : glu
 Version  : 9.0.2
-Release  : 29
+Release  : 30
 URL      : https://mesa.freedesktop.org/archive/glu/glu-9.0.2.tar.gz
 Source0  : https://mesa.freedesktop.org/archive/glu/glu-9.0.2.tar.gz
 Source1  : https://mesa.freedesktop.org/archive/glu/glu-9.0.2.tar.gz.sig
