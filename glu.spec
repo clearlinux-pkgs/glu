@@ -7,7 +7,7 @@
 #
 Name     : glu
 Version  : 9.0.2
-Release  : 31
+Release  : 32
 URL      : https://mesa.freedesktop.org/archive/glu/glu-9.0.2.tar.gz
 Source0  : https://mesa.freedesktop.org/archive/glu/glu-9.0.2.tar.gz
 Source1  : https://mesa.freedesktop.org/archive/glu/glu-9.0.2.tar.gz.sig
@@ -83,7 +83,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1682971761
+export SOURCE_DATE_EPOCH=1685510258
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -126,7 +126,7 @@ cd ../buildavx2;
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1682971761
+export SOURCE_DATE_EPOCH=1685510258
 rm -rf %{buildroot}
 pushd ../build32/
 %make_install32
@@ -154,7 +154,6 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
-/V3/usr/lib64/libGLU.so
 /usr/include/GL/glu.h
 /usr/lib64/libGLU.so
 /usr/lib64/pkgconfig/glu.pc
@@ -167,7 +166,6 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libGLU.so.1
 /V3/usr/lib64/libGLU.so.1.3.1
 /usr/lib64/libGLU.so.1
 /usr/lib64/libGLU.so.1.3.1
